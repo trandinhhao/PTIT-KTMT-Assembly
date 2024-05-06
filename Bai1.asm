@@ -5,8 +5,8 @@
 .Data   
         ; Khoi tao bien va cac hang
         CLRF DB 13,10, '$'   ; Xuong dong va lui vao dau dong
-        ENG DB 'Hello!$'     ; Loi chao bang Tieng Anh
-        VIE DB 'Xin Chao!$'  ; Loi choa bang Tieng Viet
+        ENG DB "Hello!$"     ; Loi chao bang Tieng Anh
+        VIE DB "Xin Chao!$"  ; Loi choa bang Tieng Viet
 .Code
 Main Proc           ; Thu tuc ham chinh chuong trinh
     
