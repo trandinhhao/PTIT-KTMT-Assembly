@@ -49,3 +49,5 @@ Nếu xâu B là xâu con của xâu A thì chỉ ra vị trí xâu B ở xâu A
 và m (n > m), chỉ ra xâu A chứa mấy xâu B.
 
 ✍️Bài tập lớn Kiến trúc máy tính PTIT (**Lập trình game Tic Tac Toe trên Emu8086**)
+
+➞ Tham khảo: https://github.com/LevwTech/Assembly-Tic-Tac-Toe
