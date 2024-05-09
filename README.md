@@ -1,8 +1,8 @@
-# PTIT Assembly 8086 Tutorial (Hướng dẫn Bài tập Assembly 8086 PTIT) 
+# PTIT Assembly 8086 Tutorial (Hướng dẫn Bài tập + Bài tập lớn Assembly 8086 PTIT) 
 
 ### Computer Architecture & Microprocessor (Kiến trúc máy tính & Kỹ thuật vi xử lý) PTIT
 
-✍️Bài tập + Bài tập lớn Kiến trúc máy tính PTIT (**Có giải thích chi tiết cho từng lệnh**)
+✍️Bài tập Kiến trúc máy tính PTIT (**Có giải thích chi tiết cho từng lệnh**)
 1. Viết chương trình hợp ngữ in ra lời chào Tiếng Anh và Tiếng Việt.
 2. Viết chương trình hợp ngữ Assembly cho phép nhập 1 ký tự và in ra
 màn hình ký tự đó.
@@ -47,3 +47,5 @@ n và m (n > m), chỉ ra xâu B có phải là xâu con của xâu A không?
 Nếu xâu B là xâu con của xâu A thì chỉ ra vị trí xâu B ở xâu A.
 20. Viết chương trình hợp ngữ cho hai chuỗi ký tự A và B có độ dài là n
 và m (n > m), chỉ ra xâu A chứa mấy xâu B.
+
+✍️Bài tập lớn Kiến trúc máy tính PTIT (**Lập trình game Tic Tac Toe trên Emu8086**)
