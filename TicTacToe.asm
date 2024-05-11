@@ -7,8 +7,8 @@ Org 100h           ; Thiết lập vị trí bắt đầu trong bộ nhớ
 	PLAYER DB ?  						; Khai báo biến cho người chơi
 	WELCOME DB 'Welcome to Tic Tac Toe! $'			; Thông điệp chào mừng
 	INPUT DB 'Enter Position Number, PLAYER Turn is: $' 	; Thông điệp nhập dữ liệu
-	DRAW DB 'DRAW! $' 					; thông điệp hòa
-	WIN DB 'PLAYER WIN: $' 					; thông điệp chiến thắng
+	DRAW DB 'DRAW! $' 					; Thông điệp hòa
+	WIN DB 'PLAYER WIN: $' 					; Thông điệp chiến thắng
 
 .CODE    ; Khối mã lệnh
 main:
@@ -47,7 +47,7 @@ CONTINUE:
 	pop cx            	; Lấy giá trị cx ra khỏi ngăn xếp
 	call CHECKWIN     	; Kiểm tra kết quả chơi        
 	loop x                  ; Lặp lại chương trình
-	call PRINT_DRAW      	; nếu không ai thắng in hòa
+	call PRINT_DRAW      	; Nếu không ai thắng in hòa
 programEnd:   
 	mov     ah, 0        	; Thiết lập thanh ghi AH thành giá trị 0
         int     16h          	
@@ -70,31 +70,31 @@ PRINT_MANG:         			; Thủ tục in bảng lưới
 	inc bx       			; Tăng chỉ số
 	loop x2          		; Lặp lại qua các cột
 	pop cx          		; Lấy lại giá trị cx
-	loop x1              		; Lap lai qua cac dong
+	loop x1              		; Lặp lai qua cac dòng
 	pop cx               		; Lấy lại giá trị cx
 	call IN_DONG_MOI    		; In dòng mới 
 ret                      					
         
-IN_DONG_MOI:            	; Thủ tục in dòng mới
-	mov dl, 0ah     	; Kí tự xuống dòng
-	mov ah, 2       	; Câu lệnh in kí tự
-	int 21h         	; Gọi ngắt để in kí tự
+IN_DONG_MOI:            		; Thủ tục in dòng mới
+	mov dl, 0ah     		; Kí tự xuống dòng
+	mov ah, 2       		; Câu lệnh in kí tự
+	int 21h         		; Gọi ngắt để in kí tự
 	mov dl, 13          		 		
-	mov ah, 2       	; Câu lệnh in kí tự
-	int 21h         	; Gọi ngắt để in kí tự
+	mov ah, 2       		; Câu lệnh in kí tự
+	int 21h         		; Gọi ngắt để in kí tự
 ret                     			 		
         
-PRINT_Space:            	; Thủ tục in khoảng trắng
-	mov dl, 32          	; Mã ascii của khoảng trắng
-	mov ah, 2            	; Câu lệnh in kí tự
-	int 21h              	; Gọi ngắt để in kí tự
+PRINT_Space:            		; Thủ tục in khoảng trắng
+	mov dl, 32          		; Mã ascii của khoảng trắng
+	mov ah, 2            		; Câu lệnh in kí tự
+	int 21h              		; Gọi ngắt để in kí tự
 ret       
               		 			
-NHAP:   ; thủ tục đọc dữ liệu đầu vào
+NHAP:  				        ; Thủ tục đọc dữ liệu đầu vào
 
-	mov ah, 1        	; cho phép nhập kí tự
-	int 21h                	; gọi ngắt để nhập dữ liệu
-	cmp al, '1'             ; kiểm tra giá trị nhập vào
+	mov ah, 1        		; Cho phép nhập kí tự
+	int 21h               	 	; Gọi ngắt để nhập dữ liệu
+	cmp al, '1'                     ; Kiểm tra giá trị nhập vào
 	je VALID
 	cmp al, '2'
 	je VALID
@@ -112,14 +112,14 @@ NHAP:   ; thủ tục đọc dữ liệu đầu vào
 	je VALID
 	cmp al, '9'
 	je VALID
-	jmp NOT_VALID          ; quay lại vị trí không hợp lệ
-	VALID:                 ; điểm hợp lệ
+	jmp NOT_VALID                   ; Quay lại vị trí không hợp lệ
+	VALID:                          ; Điểm hợp lệ
 ret                       					
         
-PRINT_WELCOME:          		; Thủ tục in thông điệp chào mừng
+PRINT_WELCOME:          	 	; Thủ tục in thông điệp chào mừng
 	lea dx, WELCOME   		; Tải địa chỉ của thông điệp vào dx
 	mov ah, 9            		; Câu lệnh in chuỗi
-	int 21h             		 ; Gọi ngắt để in chuỗi
+	int 21h             		; Gọi ngắt để in chuỗi
 ret                       					
         
 PRINT_DRAW:                  		; Thủ tục in thông điệp hoa
@@ -151,77 +151,77 @@ IN_NHAP:                 		; Thủ tục in thông điệp nhập liệu
 	call PRINT_Space                ; Gọi thủ tục in khoảng trắng
 ret                                				
         
-CHECKWIN:                        ; Thủ tục kiểm tra kết quả
-	mov bl, MANG[0]          ; Kiểm tra hàng 0
-	cmp bl, MANG[1]          ; So sánh giá trị đầu tiên và thứ 2
-	jne skip1                ; Nếu không giống nhau bỏ qua
-	cmp bl, MANG[2]          ; So sánh giá trị đầu tiên và thứ 3
-	jne skip1                ; Nếu không giống nhau bỏ qua
-	call PRINT_WIN           ; Nếu giống nhau in thông điệp chiến thắng
+CHECKWIN:                      		; Thủ tục kiểm tra kết quả
+	mov bl, MANG[0]                 ; Kiểm tra hàng 0
+	cmp bl, MANG[1]          	; So sánh giá trị đầu tiên và thứ 2
+	jne skip1                	; Nếu không giống nhau bỏ qua
+	cmp bl, MANG[2]          	; So sánh giá trị đầu tiên và thứ 3
+	jne skip1                	; Nếu không giống nhau bỏ qua
+	call PRINT_WIN           	; Nếu giống nhau in thông điệp chiến thắng
 
-skip1:                           ; Vị trí bỏ qua
-	mov bl, MANG[3]          ; Kiểm tra hàng 1
-	cmp bl, MANG[4]          ; So sánh giá trị đầu tiên và thứ 2 của hàng 1
-	jne skip2                ; Nếu không giống nhau bỏ qua
-	cmp bl, MANG[5]          ; So sánh giá trị đầu tiên và thứ 3 của hàng 1
-	jne skip2                ; Nếu không giống nhau bỏ qua
-	call PRINT_WIN           ; Nếu giống nhau in thông điệp chiến thắng
+skip1:                           	; Vị trí bỏ qua
+	mov bl, MANG[3]          	; Kiểm tra hàng 1
+	cmp bl, MANG[4]          	; So sánh giá trị đầu tiên và thứ 2 của hàng 1
+	jne skip2                	; Nếu không giống nhau bỏ qua
+	cmp bl, MANG[5]          	; So sánh giá trị đầu tiên và thứ 3 của hàng 1
+	jne skip2                	; Nếu không giống nhau bỏ qua
+	call PRINT_WIN           	; Nếu giống nhau in thông điệp chiến thắng
 
-skip2:                           ; Vị trí bỏ qua
-	mov bl, MANG[6]          ; Kiểm tra hàng 2
-	cmp bl, MANG[7]          ; So sánh giá trị đầu tiên và thứ 2 của hàng 2
-	jne skip3                ; Nếu không giống nhau bỏ qua
-	cmp bl, MANG[8]          ; So sánh giá trị đầu tiên và thứ 3 của hàng 2
-	jne skip3                ; Nếu không giống nhau bỏ qua
-	call PRINT_WIN           ; Nếu giống nhau in thông điệp chiến thắng
+skip2:                           	; Vị trí bỏ qua
+	mov bl, MANG[6]          	; Kiểm tra hàng 2
+	cmp bl, MANG[7]          	; So sánh giá trị đầu tiên và thứ 2 của hàng 2
+	jne skip3                	; Nếu không giống nhau bỏ qua
+	cmp bl, MANG[8]          	; So sánh giá trị đầu tiên và thứ 3 của hàng 2
+	jne skip3                	; Nếu không giống nhau bỏ qua
+	call PRINT_WIN           	; Nếu giống nhau in thông điệp chiến thắng
 
-skip3:                           ; Vị trí bỏ qua
-	mov bl, MANG[0]          ; Kiểm tra cột 0
-	cmp bl, MANG[3]          ; So sánh vị trí đầu tiên và thứ 2 của cột 0
-	jne skip4                ; Nếu không giống nhau bỏ qua
-	cmp bl, MANG[6]          ; So sánh vị trí đầu tiên và thứ 3 của cột 0
-	jne skip4                ; Nếu không giống nhau bỏ qua
-	call PRINT_WIN           ; Nếu giống nhau in thông điệp chiến thắng
+skip3:                           	; Vị trí bỏ qua
+	mov bl, MANG[0]          	; Kiểm tra cột 0
+	cmp bl, MANG[3]          	; So sánh vị trí đầu tiên và thứ 2 của cột 0
+	jne skip4                	; Nếu không giống nhau bỏ qua
+	cmp bl, MANG[6]          	; So sánh vị trí đầu tiên và thứ 3 của cột 0
+	jne skip4               	; Nếu không giống nhau bỏ qua
+	call PRINT_WIN           	; Nếu giống nhau in thông điệp chiến thắng
 
-skip4:                           ; Vị trí bỏ qua
-	mov bl, MANG[1]          ; Kiểm tra cột 1
-	cmp bl, MANG[4]          ; So sánh vị trí đầu tiên và thứ 2 của cột 1
-	jne skip5                ; Nếu không giống nhau bỏ qua
-	cmp bl, MANG[7]          ; So sánh vị trí đầu tiên và thứ 3 của cột 1
-	jne skip5                ; Nếu không giống nhau bỏ qua
-	call PRINT_WIN           ; Nếu giống nhau in thông điệp chiến thắng
+skip4:                           	; Vị trí bỏ qua
+	mov bl, MANG[1]          	; Kiểm tra cột 1
+	cmp bl, MANG[4]          	; So sánh vị trí đầu tiên và thứ 2 của cột 1
+	jne skip5                	; Nếu không giống nhau bỏ qua
+	cmp bl, MANG[7]          	; So sánh vị trí đầu tiên và thứ 3 của cột 1
+	jne skip5                	; Nếu không giống nhau bỏ qua
+	call PRINT_WIN           	; Nếu giống nhau in thông điệp chiến thắng
 
-skip5:                           ; Vị trí bỏ qua    
-	mov bl, MANG[2]          ; Kiểm tra cột 2
-	cmp bl, MANG[5]          ; So sánh vị trí đầu tiên và thứ 2 của cột 2
-	jne skip6                ; Nếu không giống nhau bỏ qua
-	cmp bl, MANG[8]          ; So sánh vị trí đầu tiên và thứ 3 của cột 2
-	jne skip6                ; Nếu không giống nhau bỏ qua
-	call PRINT_WIN           ; Nếu giống nhau in thông điệp chiến thắng
+skip5:                           	; Vị trí bỏ qua    
+	mov bl, MANG[2]          	; Kiểm tra cột 2
+	cmp bl, MANG[5]          	; So sánh vị trí đầu tiên và thứ 2 của cột 2
+	jne skip6                	; Nếu không giống nhau bỏ qua
+	cmp bl, MANG[8]          	; So sánh vị trí đầu tiên và thứ 3 của cột 2
+	jne skip6                	; Nếu không giống nhau bỏ qua
+	call PRINT_WIN           	; Nếu giống nhau in thông điệp chiến thắng
 
 
-skip6:                           ; vị trí bỏ qua
+skip6:                           	; Vị trí bỏ qua
             
-            mov bl, MANG[0]      ; Kiểm tra đường chéo chính
-            cmp bl, MANG[4]      ; So sánh giá trị đầu tiên và thứ 2 của đường chéo chính
-            jne skip7            ; Nếu không giống nhau bỏ qua
-            cmp bl, MANG[8]      ; So sánh giá trị đầu tiên và thứ 3 của đường chéo chính
-            jne skip7            ; Nếu không giống nhau bỏ qua
-            call PRINT_WIN       ; Nếu giống nhau in thông điệp chiến thắng
+            mov bl, MANG[0]      	; Kiểm tra đường chéo chính
+            cmp bl, MANG[4]      	; So sánh giá trị đầu tiên và thứ 2 của đường chéo chính
+            jne skip7            	; Nếu không giống nhau bỏ qua
+            cmp bl, MANG[8]      	; So sánh giá trị đầu tiên và thứ 3 của đường chéo chính
+            jne skip7            	; Nếu không giống nhau bỏ qua
+            call PRINT_WIN       	; Nếu giống nhau in thông điệp chiến thắng
 
-skip7:               		 ; vị trí bỏ qua
-	mov bl, MANG[2]          ; Kiểm tra đường chéo phụ
-	cmp bl, MANG[4]          ; So sánh giá trị đầu tiên và thứ 2 của đường chéo phụ
-	jne skip8                ; Nếu không giống nhau bỏ qua 
-	cmp bl, MANG[6]          ; So sánh giá trị đầu tiên và thứ 3 của đường chéo phụ
-	jne skip8                ; Nếu không giống nhau bỏ qua
-	call PRINT_WIN           ; Nếu giống nhau in thông điệp chiến thắng
+skip7:               		 	; Vị trí bỏ qua
+	mov bl, MANG[2]          	; Kiểm tra đường chéo phụ
+	cmp bl, MANG[4]          	; So sánh giá trị đầu tiên và thứ 2 của đường chéo phụ
+	jne skip8                	; Nếu không giống nhau bỏ qua 
+	cmp bl, MANG[6]          	; So sánh giá trị đầu tiên và thứ 3 của đường chéo phụ
+	jne skip8                	; Nếu không giống nhau bỏ qua
+	call PRINT_WIN          	; Nếu giống nhau in thông điệp chiến thắng
 
-skip8:                           ; Vị trí bỏ qua
+skip8:                           	; Vị trí bỏ qua
 ret                                                                 	 
         
-XOA_MAN_HINH:                    ; Thủ tục xóa màn hình
-	mov ax, 3                ; Xóa màn hình
-	int 10h                  ; Gọi ngắt
+XOA_MAN_HINH:                    	; Thủ tục xóa màn hình
+	mov ax, 3                	; Xóa màn hình
+	int 10h                  	; Gọi ngắt
 ret                                                            	
-end main                         ; Kết thúc chương trình
+end main                         	; Kết thúc chương trình
