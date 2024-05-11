@@ -2,7 +2,7 @@
 
 ### Computer Architecture & Microprocessor (Kiến trúc máy tính & Kỹ thuật vi xử lý) PTIT
 
-✍️Bài tập Kiến trúc máy tính PTIT (**Có giải thích chi tiết cho từng lệnh**)
+✍️Bài tập Kiến trúc máy tính PTIT (**Có giải thích chi tiết cho từng lệnh, bao gồm các bài: 1,2,3,4,5,8,16**)
 1. Viết chương trình hợp ngữ in ra lời chào Tiếng Anh và Tiếng Việt.
 2. Viết chương trình hợp ngữ Assembly cho phép nhập 1 ký tự và in ra
 màn hình ký tự đó.
