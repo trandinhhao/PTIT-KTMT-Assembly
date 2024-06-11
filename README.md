@@ -48,6 +48,6 @@ Nếu xâu B là xâu con của xâu A thì chỉ ra vị trí xâu B ở xâu A
 20. Viết chương trình hợp ngữ cho hai chuỗi ký tự A và B có độ dài là n
 và m (n > m), chỉ ra xâu A chứa mấy xâu B.
 
-✍️Bài tập lớn Kiến trúc máy tính PTIT (**Lập trình game Tic Tac Toe trên Emu8086**)
+✍️Bài tập lớn Kiến trúc máy tính PTIT (**Lập trình game Tic Tac Toe + Quản lý bán hàng trên Emu8086**)
 
 ➞ Tham khảo: https://github.com/LevwTech/Assembly-Tic-Tac-Toe
